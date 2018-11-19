@@ -130,6 +130,10 @@ jobs:
       - image: circleci/python:3.6.1
     environment:
       AWS_DEFAULT_OUTPUT: json
+      AWS_RESOURCE_NAME_PREFIX: holexc
+      AWS_DEFAULT_REGION: eu-west-1
+      AWS_ACCOUNT_ID: 512492595221 
+
     steps:
       - checkout
       - setup_remote_docker
