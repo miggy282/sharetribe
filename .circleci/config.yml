@@ -84,22 +84,22 @@ jobs:
       - store_artifacts:
           path: /tmp/circleci-test-results
     #Build Docker appp
-    build:
-      docker:
-        - image:  circleci/ruby:2.3.4-jessie-browsers  
-          environment:
-            CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
-            MOCHA_FILE: /tmp/circleci-test-results/mocha.xml
-            DATABASE_URL: mysql2://root:very-secret@127.0.0.1/sharetribe_test
-            NODE_VERSION: 7.8.0
-            NODE_ENV: test
-            RAILS_ENV: test
-            RACK_ENV: test
-            BUNDLE_PATH: vendor/bundle
-            BUNDLE_JOBS: 4
-            BUNDLE_RETRY: 3
-      steps:
-         - checkout 
+  build:
+    docker:
+      - image:  circleci/ruby:2.3.4-jessie-browsers  
+        environment:
+          CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+          MOCHA_FILE: /tmp/circleci-test-results/mocha.xml
+          DATABASE_URL: mysql2://root:very-secret@127.0.0.1/sharetribe_test
+          NODE_VERSION: 7.8.0
+          NODE_ENV: test
+          RAILS_ENV: test
+          RACK_ENV: test
+          BUNDLE_PATH: vendor/bundle
+          BUNDLE_JOBS: 4
+          BUNDLE_RETRY: 3
+    steps:
+      - checkout 
       - run:
           name: Setup common environment variables
           command: |

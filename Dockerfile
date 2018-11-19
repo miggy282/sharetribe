@@ -73,19 +73,19 @@ USER app
 
 RUN bundle install --deployment --without test,development
 
-COPY package.json /opt/app/
-COPY client/package.json /opt/app/client/
-COPY client/customloaders/customfileloader /opt/app/client/customloaders/customfileloader
+#COPY package.json /opt/app/
+#COPY client/package.json /opt/app/client/
+#COPY client/customloaders/customfileloader /opt/app/client/customloaders/customfileloader
 
-ENV NODE_ENV production
-ENV NPM_CONFIG_LOGLEVEL error
-ENV NPM_CONFIG_PRODUCTION true
+#ENV NODE_ENV production
+#ENV NPM_CONFIG_LOGLEVEL error
+#ENV NPM_CONFIG_PRODUCTION true
 
-RUN npm install
+#RUN npm install
 
-COPY . /opt/app
+#COPY . /opt/app
 
-EXPOSE 3000
+#EXPOSE 3000
 
 CMD ["script/startup.sh"]
 ENTRYPOINT ["script/entrypoint.sh"]
